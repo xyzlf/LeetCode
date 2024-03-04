@@ -9,7 +9,7 @@ public class Common {
     public static void main(String[] args) {
         int f = jumpFloor(4);
         int f2 = jumpFloor2(4);
-        System.out.println("   f=" + f + "   f2=" + f2);
+        System.out.println("f=" + f + "   f2=" + f2);
     }
 
     /**
