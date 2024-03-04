@@ -3,7 +3,8 @@
 
 # 算法题
 1.[单链表反转](https://github.com/xyzlf/LeetCode/blob/master/src/main/java/com/xyzlf/leet/ListReverse.java)  
-2.[二叉树最大深度、最大宽度、二叉树反转](https://github.com/xyzlf/LeetCode/blob/master/src/main/java/com/xyzlf/leet/BinaryTree.java)
+2.[二叉树最大深度、最大宽度、二叉树反转](https://github.com/xyzlf/LeetCode/blob/master/src/main/java/com/xyzlf/leet/BinaryTree.java)   
+3.[跳台阶](https://github.com/xyzlf/LeetCode/blob/master/src/main/java/com/xyzlf/leet/Common.java)
 
 # 关于我
 有任何使用问题，可以给我发邮件：  
