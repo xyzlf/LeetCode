@@ -2,17 +2,17 @@
 算法题解记录
 
 # 算法题
-1.[单链表反转](https://github.com/xyzlf/LeetCode/blob/master/src/main/java/com/xyzlf/leet/ListReverse.java)
+1.[单链表反转](https://github.com/xyzlf/LeetCode/blob/master/src/main/java/com/xyzlf/leet/ListReverse.java)  
+2.[二叉树最大深度、最大宽度、二叉树反转](https://github.com/xyzlf/LeetCode/blob/master/src/main/java/com/xyzlf/leet/BinaryTree.java)
 
 # 关于我
-有任何使用问题，可以给我发邮件：
+有任何使用问题，可以给我发邮件：  
 
-Author：张利峰
+Author：张利峰   
 
 E-mail：519578280@qq.com
 
 # License
-
     Copyright(c) 2024 xyzlf Open Source Project
     
     Licensed under the Apache License, Version 2.0 (the "License");

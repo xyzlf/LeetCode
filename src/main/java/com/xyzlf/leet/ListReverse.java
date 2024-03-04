@@ -20,75 +20,77 @@ public class ListReverse {
     }
 
     public static void main(String[] args) {
-        ListNode node1 = new ListNode(1);
+        ListNode head = new ListNode(1);
         ListNode node2 = new ListNode(2);
         ListNode node3 = new ListNode(3);
         ListNode node4 = new ListNode(4);
 
-        node1.next = node2;
+        head.next = node2;
         node2.next = node3;
         node3.next = node4;
 
         System.out.println(" ----- 反转前 -----");
-        ListNode tempNode = node1;
+        ListNode tempNode = head;
         while (tempNode != null) {
             System.out.println(tempNode.val);
             tempNode = tempNode.next;
         }
 
         System.out.println(" ----- 反转后 -----");
-        ListNode newNode = reverseList2(node1);
-        while (newNode != null) {
-            System.out.println(newNode.val);
-            newNode = newNode.next;
+        ListNode newHead = reverseList2(head);
+        while (newHead != null) {
+            System.out.println(newHead.val);
+            newHead = newHead.next;
         }
     }
 
     /**
      * 迭代实现
-     * @param root rootNode
+     * @param head rootNode
      * @return {@link ListNode}
      */
-    public static ListNode reverseList(ListNode root) {
+    public static ListNode reverseList(ListNode head) {
         ListNode preNode = null;
-        while (root != null) {
-            ListNode nextNode = root.next;
-            root.next = preNode;
-            preNode = root;
-            root = nextNode;
+        while (head != null) {
+            ListNode nextNode = head.next;
+            head.next = preNode;
+            preNode = head;
+            head = nextNode;
         }
         return preNode;
     }
 
     /**
      * 递归实现
-     * @param root rootNode
+     * @param head rootNode
      * @return {@link ListNode}
      */
-    public static ListNode reverseList2(ListNode root) {
-        if (root == null || root.next == null) {
-            return root;
+    public static ListNode reverseList2(ListNode head) {
+        if (head == null || head.next == null) {
+            return head;
         }
 
-        ListNode newHead = reverseList2(root.next);
-        root.next.next = root;
-        root.next = null;
+        //递的过程，一次次拆解问题
+        ListNode newHead = reverseList2(head.next);
+        //归的过程，反转
+        head.next.next = head;
+        head.next = null;
         return newHead;
     }
 
     /**
      * 用栈实现
-     * @param root rootNode
+     * @param head rootNode
      * @return {@link ListNode}
      */
-    public static ListNode reverseList3(ListNode root) {
-        if (null == root) {
+    public static ListNode reverseList3(ListNode head) {
+        if (null == head) {
             return null;
         }
         Stack<ListNode> stack = new Stack<>();
-        while (root != null) {
-            stack.push(root);
-            root = root.next;
+        while (head != null) {
+            stack.push(head);
+            head = head.next;
         }
 
         ListNode newHead = stack.pop();
@@ -97,6 +99,7 @@ public class ListReverse {
             tempNode.next = stack.pop();
             tempNode = tempNode.next;
         }
+        //头节点next需要置为null
         tempNode.next = null;
 
         return newHead;
