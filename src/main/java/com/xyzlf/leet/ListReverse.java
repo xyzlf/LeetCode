@@ -2,6 +2,12 @@ package com.xyzlf.leet;
 
 import java.util.Stack;
 
+/**
+ * @author xyzlf
+ * @date 2024/3/4 15:59
+ *
+ * 单链表反转算法
+ */
 public class ListReverse {
 
     private static class ListNode {
@@ -31,7 +37,7 @@ public class ListReverse {
         }
 
         System.out.println(" ----- 反转后 -----");
-        ListNode newNode = reverseList3(node1);
+        ListNode newNode = reverseList2(node1);
         while (newNode != null) {
             System.out.println(newNode.val);
             newNode = newNode.next;
@@ -66,6 +72,7 @@ public class ListReverse {
 
         ListNode newHead = reverseList2(root.next);
         root.next.next = root;
+        root.next = null;
         return newHead;
     }
 
@@ -80,7 +87,6 @@ public class ListReverse {
         }
         Stack<ListNode> stack = new Stack<>();
         while (root != null) {
-            System.out.println("-----" + root.val);
             stack.push(root);
             root = root.next;
         }
