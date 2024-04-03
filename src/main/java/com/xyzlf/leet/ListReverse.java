@@ -6,7 +6,7 @@ import java.util.Stack;
  * @author xyzlf
  * @date 2024/3/4 15:59
  *
- * 单链表反转算法
+ * 链表相关算法
  */
 public class ListReverse {
 

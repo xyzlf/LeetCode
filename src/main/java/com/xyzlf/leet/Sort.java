@@ -5,6 +5,8 @@ import java.util.Arrays;
 /**
  * @author xyzlf
  * @date 2024/3/5 14:07
+ *
+ * 排序相关算法
  */
 public class Sort {
 
@@ -23,12 +25,34 @@ public class Sort {
 //        int[] bubbleResult = bubbleSort(array);
 //        print(bubbleResult);
 
-        System.out.println("\n------分割线-----\n");
+//        System.out.println("\n------分割线-----\n");
+//
+//        //快速排序
+//        int[] a = {2, 4, 6, 1, 3, 7, 9, 8, 5};
+//        quickSort2(a, 0, a.length - 1);
+//        System.out.println(Arrays.toString(a));
 
-        //快速排序
-        int[] a = {2, 4, 6, 1, 3, 7, 9, 8, 5};
-        quickSort2(a, 0, a.length - 1);
-        System.out.println(Arrays.toString(a));
+        //归并排序
+        int[] array = {4, 6, 8, 3, 9, 2, 1, 5, 7};
+        array = mergeSort(array);
+        System.out.println(Arrays.toString(array));
+    }
+
+    public static int[] insertSort(int[] array) {
+        if (null == array) {
+            return null;
+        }
+        final int len = array.length;
+        for (int i = 1; i < len; i++) {
+            int insertValue = array[i];
+            int j = i - 1;
+            while (j >= 0 && insertValue < array[j]) {
+                array[j + 1] = array[j];
+                j--;
+            }
+            array[j + 1] = insertValue;
+        }
+        return array;
     }
 
     /**
@@ -139,34 +163,71 @@ public class Sort {
     //int[] a = {2, 4, 6, 1, 3, 7, 9, 8, 5};
     public static void quickSort2(int[] a, int start, int end) {
         if (start < end) {
-            int stard = a[start]; //基准
-
-            System.out.println("基准值：" + stard + " left:" + start + " right:" + end);
+            int standard = a[start]; //基准
 
             int left = start;
             int right = end;
             while (left < right) {
                 //从右边开始直到找到比基准小的数
-                while (left < right && a[right] >= stard) {
+                while (left < right && a[right] >= standard) {
                     right--;
                 }
                 a[left] = a[right];
                 //从左边开始直到找到比基准大的数
-                while (left < right && a[left] <= stard) {
+                while (left < right && a[left] <= standard) {
                     left++;
                 }
                 a[right] = a[left];
-
-                System.out.println(Arrays.toString(a));
             }
-            a[left] = stard;
-
-            System.out.println("xxxx:" + Arrays.toString(a));
-            System.out.println("start:" + start + " left:" + left + " right:" + right);
+            a[left] = standard;
 
             quickSort2(a, start, left - 1);
             quickSort2(a, right + 1, end);
         }
+    }
+
+    /**
+     * 归并排序
+     * @param array 源数组
+     */
+    public static int[] mergeSort(int[] array) {
+        if (null == array) {
+            return null;
+        }
+        final int len = array.length;
+        if (len < 2) {
+            return array;
+        }
+        int[] leftArray = Arrays.copyOfRange(array, 0, len / 2);
+        int[] rightArray = Arrays.copyOfRange(array, len / 2, len);
+
+        return merge(mergeSort(leftArray), mergeSort(rightArray));
+    }
+
+    //合并两个有序数组
+    public static int[] merge(int[] leftArray, int[] rightArray) {
+        int leftLength = leftArray.length, leftIndex = 0;
+        int rightLength = rightArray.length, rightIndex = 0;
+        int[] newArray = new int[leftLength + rightLength];
+        int index = 0;
+
+        while (leftIndex < leftLength && rightIndex < rightLength) {
+            if (leftArray[leftIndex] < rightArray[rightIndex]) {
+                newArray[index++] = leftArray[leftIndex];
+                leftIndex++;
+            } else {
+                newArray[index++] = rightArray[rightIndex];
+                rightIndex++;
+            }
+        }
+
+        while (leftIndex < leftLength) {
+            newArray[index++] = leftArray[leftIndex++];
+        }
+        while (rightIndex < rightLength) {
+            newArray[index++] = rightArray[rightIndex++];
+        }
+        return newArray;
     }
 
 }

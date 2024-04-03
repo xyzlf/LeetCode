@@ -1,7 +1,6 @@
 package com.xyzlf.leet;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * @author xyzlf
@@ -57,6 +56,8 @@ public class BinaryTree {
 
         node6.right = node8;
 
+        printTreeNode(root);
+
         int maxHeight = maxHeight(root);
         System.out.println("最大深度为：" + maxHeight);
 
@@ -69,6 +70,8 @@ public class BinaryTree {
 
         TreeNode newTreeNode = reverseTreeNode(root);
         preOrderPrint(newTreeNode);
+
+
     }
 
     /**
@@ -167,6 +170,51 @@ public class BinaryTree {
         System.out.println(root.value);
         preOrderPrint(root.left);
         preOrderPrint(root.right);
+    }
+
+    /**
+     * 二叉树的蛇形打印
+     * @param root {@link TreeNode}
+     */
+    public static void printTreeNode(TreeNode root) {
+        if(null == root) {
+            return;
+        }
+        List<Integer> numberList = new ArrayList<>();
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+
+        boolean flag = false;
+
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            List<Integer> tempList = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                TreeNode tempNode = queue.poll();
+                if (null == tempNode) {
+                    continue;
+                }
+                if (!flag) {
+                    tempList.add(tempNode.value);
+                } else {
+                    tempList.add(0, tempNode.value);
+                }
+
+                if (tempNode.left != null) {
+                    queue.offer(tempNode.left);
+                }
+
+                if (tempNode.right != null) {
+                    queue.offer(tempNode.right);
+                }
+            }
+
+            numberList.addAll(tempList);
+            flag = !flag;
+        }
+
+        System.out.println(Arrays.toString(numberList.toArray()));
     }
 
 }
