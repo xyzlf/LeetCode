@@ -8,9 +8,7 @@
 4.[回文数字、回文字符串](https://github.com/xyzlf/LeetCode/blob/master/src/main/java/com/xyzlf/leet/Palindrome.java)   
 5.[选择排序、冒泡排序、快速排序、归并排序、堆排序](https://github.com/xyzlf/LeetCode/blob/master/src/main/java/com/xyzlf/leet/Sort.java)   
 6.[利用二分查找，找出有序数组最接近X的数](https://github.com/xyzlf/LeetCode/blob/master/src/main/java/com/xyzlf/leet/ArrayAlgorithm.java)   
-7.蛇形填充数组  
-8.数组循环右移   
-9.数组中和为目标数的所有组合
+7.[蛇形填充数组、数组循环右移、数组中和为目标数的所有组合](https://github.com/xyzlf/LeetCode/blob/master/src/main/java/com/xyzlf/leet/ArrayAlgorithm.java)
 
 
 # 关于我
